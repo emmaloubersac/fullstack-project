@@ -1,0 +1,15 @@
+<header>
+    <div class="header-container">
+        <div>
+            <h1><a routerLink="/">Gestionnaire d'utilisateurs</a></h1>
+            <p>Emma LOUBERSAC</p>
+            <p>{{ currentTime | date:'medium' }}</p>
+        </div>
+        <div class="header-right">
+        <a routerLink="/">Accueil</a>
+        <a routerLink="/users">Utilisateurs</a>
+        <a routerLink="/userTypes">Types d'utilisateurs</a>
+        </div>
+    </div>
+</header>
+<router-outlet />

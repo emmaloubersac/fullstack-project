@@ -1,0 +1,48 @@
+<div class ="container">
+    <h2>Liste des types d'utilisateurs</h2>
+    <hr />
+
+    @if (userTypeList) {
+        <div class="table-wrapper">
+            <table class="user-table">
+                <thead>
+                    <tr class="clickable-label">
+                        <th (click)="sortBy('id')" title="Trier par ID">
+                            ID {{ getSortArrow('id') }}
+                        </th>
+                        <th (click)="sortBy('type')" title="Trier par type">
+                            Type {{ getSortArrow('type') }}
+                        </th>
+                        <th title="Actions">
+                            Actions
+                        </th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (userType of userTypeList; track userType.id){
+                        <tr class="clickable-row">
+                            <td>{{ userType.id }}</td>
+                            <td>{{ userType.type }}</td>
+                            <td><button class="table-button" (click)="goToForm(userType.id)">Modifier</button><button (click)="deleteUserType(userType.id)" class="delete">Supprimer</button></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>    
+        </div>
+    }
+    @if (userTypeList.length === 0 || !userTypeList) {
+        <p>Aucun type d'utilisateur trouvé.</p>
+    }
+    <hr />
+
+    <div class="button-container">
+        <button [routerLink]="['/userTypes/add']" class="btn btn-primary">Créer un type d'utilisateur</button>
+  
+        <button [routerLink]="['/']" class="btn btn-primary">⬅ Retour à la page d'accueil</button>
+
+    </div>
+
+    <router-outlet />
+</div>
+

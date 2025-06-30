@@ -1,0 +1,33 @@
+<div class="container">
+
+    <h2>Créer un type d'utilisateur</h2> 
+
+    <hr />
+
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="p-4 bg-light rounded">
+
+    <div class="mb-3">
+        <label for="type" class="form-label">Type</label>
+        <input
+        type="type"
+        id="type"
+        class="form-control"
+        formControlName="type"
+        />
+        <div *ngIf="userForm.get('type')?.touched && userForm.get('type')?.invalid">
+            <small class="error">Le type est requis.</small>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="userForm.invalid">
+        Enregistrer
+    </button>
+    </form>
+
+
+    <hr />
+
+
+    <button [routerLink]="['/userTypes']"  class="btn btn-primary">⬅ Retour à la liste des types d'utilisateur</button>
+
+</div>

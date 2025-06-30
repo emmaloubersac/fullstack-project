@@ -1,0 +1,59 @@
+<div class ="container">
+    <h2>Liste des utilisateurs</h2> 
+    <hr />
+
+    @if (userList) {
+        <div class="table-wrapper">
+            <table class="user-table">
+                <thead>
+                    <tr class="clickable-label">
+                        <th (click)="sortBy('firstName')" title="Trier par prénom">
+                            Prénom {{ getSortArrow('firstName') }}
+                        </th>
+                        <th (click)="sortBy('lastName')" title="Trier par nom de famille">
+                            Nom {{ getSortArrow('lastName') }}
+                        </th>
+                        <th (click)="sortBy('email')" title="Trier par email">
+                            Email {{ getSortArrow('email') }}
+                        </th>
+                        <th (click)="sortByUserType()" title="Trier par type">
+                            Type {{ getSortArrow('userType') }}
+                        </th>
+                        <th title="Actions">
+                            Actions
+                        </th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (user of userList; track user.id){
+                        <tr class="clickable-row">
+                            <td>{{ user.firstName }}</td>
+                            <td>{{ user.lastName }}</td>
+                            <td>{{ user.email }}</td>
+                            <td>{{ user.userType?.type || '' }}</td>
+                            <td><button class="table-button" (click)="goToForm(user.id)">Modifier</button><button (click)="deleteUser(user.id)" class="delete">Supprimer</button></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>    
+        </div>
+    }
+    @if (userList.length === 0 || !userList) {
+        <p>Aucun utilisateur trouvé.</p>
+    }
+
+    <hr />
+
+    <div class="button-container">
+        <button [routerLink]="['/users/add']" class="btn btn-primary">Créer un utilisateur</button>
+  
+        <button [routerLink]="['/']" class="btn btn-primary">⬅ Retour à la page d'accueil</button>
+
+    </div>
+    
+    <router-outlet />
+</div>
+
+
+

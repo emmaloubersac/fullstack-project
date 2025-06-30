@@ -1,0 +1,98 @@
+.container {
+  max-height: 80vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  max-height: 60vh;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: white;
+}
+
+/* Table structure */
+.user-table {
+  width: 100%;
+  min-width: 1000px;
+  border-collapse: collapse;
+  font-size: 14px;
+  color: #2c3e50;
+}
+
+/* Table header */
+.user-table thead th {
+  background-color: #f0f4f8;
+  color: #333;
+  font-weight: 600;
+  position: sticky;
+  max-width: 40px;
+  top: 0;
+  z-index: 1;
+  padding: 8px 12px;
+  border-bottom: 2px solid #ccc;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.user-table th:hover {
+  background-color: #dbe4ea;
+}
+
+/* Table body rows */
+.user-table tbody tr {
+  background-color: #fafafa;
+  transition: background-color 0.2s ease;
+}
+
+.user-table tbody tr:hover {
+  background-color: #f1f5f9;
+}
+
+.user-table td {
+  padding: 8px 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Table buttons */
+.table-button,
+.delete {
+  font-size: 13px;
+  padding: 6px 10px;
+  margin: 4px;
+  border-radius: 6px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.table-button {
+  background-color: #4caf50;
+}
+
+.table-button:hover {
+  background-color: #45a049;
+}
+
+.delete {
+  background-color: #e53935;
+}
+
+.delete:hover {
+  background-color: #d32f2f;
+}
+
+/* Extra UI layout */
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.clickable-label,
+.clickable-row {
+  cursor: pointer;
+}

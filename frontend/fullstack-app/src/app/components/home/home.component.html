@@ -1,0 +1,18 @@
+<div class="menu-container">
+  <h2 class="menu-title">Tableau de bord</h2>
+  <hr />
+
+  <div class="menu-section">
+    <h3>Utilisateurs</h3>
+    <button [routerLink]="['/users']" class="menu-button">👥 Liste des utilisateurs</button>
+    <button [routerLink]="['/users/add']" class="menu-button">➕ Créer un utilisateur</button>
+  </div>
+
+  <div class="menu-section">
+    <h3>Types d'utilisateurs</h3>
+    <button [routerLink]="['/userTypes']" class="menu-button">📂 Liste des types</button>
+    <button [routerLink]="['/userTypes/add']" class="menu-button">➕ Créer un type</button>
+  </div>
+</div>
+
+<router-outlet />

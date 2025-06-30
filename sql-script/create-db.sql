@@ -1,0 +1,25 @@
+DROP SCHEMA IF EXISTS `fullstack-project-db`;
+CREATE SCHEMA `fullstack-project-db`;
+USE `fullstack-project-db`;
+
+SET FOREIGN_KEY_CHECKS = 0;
+
+CREATE TABLE `user_type` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `type` VARCHAR(128) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `TYPE_UNIQUE` (`type`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `user` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `first_name` VARCHAR(45) DEFAULT NULL,
+  `last_name` VARCHAR(45) DEFAULT NULL,
+  `email` VARCHAR(45) DEFAULT NULL,
+  `user_type_id` INT,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `FK_USER_TYPE` FOREIGN KEY (`user_type_id`) REFERENCES `user_type` (`id`)
+    ON DELETE SET NULL ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+SET FOREIGN_KEY_CHECKS = 1;
