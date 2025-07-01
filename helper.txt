@@ -1,6 +1,9 @@
+# to build angular app
 npm run build --prod
 
+# to stop docker
 docker compose down -v
 
+# to build and start docker 
 docker compose up --build
 

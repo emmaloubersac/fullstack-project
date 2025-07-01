@@ -30,7 +30,6 @@ export class UserTypeFormComponent {
   ngOnInit(): void {
     // Load user types from the service
     const subscription = this.userTypeService.getUserTypes().subscribe(userTypes => {
-      console.log('Loaded users:', userTypes);
       this.userTypesList = userTypes;
     }, error => {
       console.error("Error loading userType:", error);

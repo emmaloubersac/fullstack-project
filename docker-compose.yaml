@@ -19,7 +19,7 @@ services:
   backend:
     depends_on:
       - db
-    build: ./backend/fullstackProject
+    build: ./backend/spring-boot-app
     ports:
       - "8080:8080"
     
@@ -32,7 +32,7 @@ services:
     restart: on-failure
 
   frontend:
-    build: ./frontend/fullstack-app
+    build: ./frontend/angular-app
     ports:
       - "4200:80"
     depends_on:
